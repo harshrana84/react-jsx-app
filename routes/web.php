@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PartyMasterController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\DiamondController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,11 @@ Route::get('/diamonds/{stock_id}', [DiamondController::class, 'show'])->name('di
 
 
 Route::get('/stocks', [StockController::class, 'index'])->name('stocks.index');
+
+// Route::get('/parties', [PartyMasterController::class, 'index'])->name('parties.index');
+// Route::post('/parties', [PartyMasterController::class, 'store'])->name('parties.store');
+
+Route::resource('parties', PartyMasterController::class);
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
